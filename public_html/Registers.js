@@ -12,8 +12,9 @@ function RegClass(){
 }
 
 function dataReg(){
-    var address = new Array(6);
-    var inst = new Array(2);
+    var data = new Array(8);
+    var inst = data.slice(0, 1);
+    var address = data.slice(2,7);
 } 
 
 function acReg(){
