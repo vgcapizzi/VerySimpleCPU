@@ -1,21 +1,23 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+function byteClass(){
+    var bin = new Array(8);
+    var hex = new Array(2);
+    
+    function edit(dividen){
+        for(i = 0; i < 8; i++){
+            bin[8-i] = dividen % 2;
+            dividen = Math.floor(dividen / 2);
+        }
+    }
+    
+    function clear(){
+        bin.fill(0);
+    }
+    
+    
+    edit(11);
+    alert(bin.join(""));
+    clear();
+    alert(bin.toString());
+}
 
-<!DOCTYPE html>
-<html>
-<body>
-
-<h1>My First JavaScript</h1>
-
-<button type="button"
-onclick="document.getElementById('demo').innerHTML = Date()">
-Click me to display Date and Time.</button>
-//test bs
-
-<p id="demo"></p>
-
-</body>
-</html> 
+window.onload=byteClass;
