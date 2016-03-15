@@ -11,11 +11,15 @@ function Byte(){
     this.hex = new Array(2);
     
     //methods
+    //Clears both arrays - sets to zero
     this.clear = function(){
         this.binary.fill("0");
         this.hex.fill("0");
     };
     
+    //takes a decimal number, changes to binary
+    //and inserts it in the binary array
+    //also changes it to hex
     this.insert = function(dividen){
          // alert("inserting " + dividen);
         for(i = 0; i < 8; i++){
@@ -25,6 +29,7 @@ function Byte(){
         this.toHex();
     };
     
+    //converts binary array to hex and inserts into hex array
     this.toHex = function(){
         var binLow = "";
         var binHigh = "";
@@ -38,27 +43,38 @@ function Byte(){
         this.hex[0] = parseInt(binHigh, 2).toString(16);
     };
     
+    //displays the binary array as a string in an alert box
     this.displayBin = function(){
         alert(this.binary.join(""));
     };
     
+    //displays the hes array as a string in an alert box
     this.displayHex = function(){
         alert(this.hex.join("").toUpperCase())
     };
     
+    //returns binary array as string
     this.binString = function(){
         this.binaryString = "";
         return( this.binaryString = this.binary.join(""));
     };
     
+    //returns hex array as string
     this.hexString = function(){
         this.binaryString = "";
         return( this.binaryString = this.hex.join(""));
     };
     
+    //returns binary array
     this.binArry = function(){
         
         return(this.binary);
     };
+    
+    //returns hex array
+    this.hexArray = function(){
+        return(this.hex);
+    };
+    
 };
 
