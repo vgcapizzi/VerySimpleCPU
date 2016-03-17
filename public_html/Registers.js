@@ -1,60 +1,79 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+register redesign 
  */
+
+//Fecth 2: DR<=M
 function dataReg(){
     this.byte = new Byte();
-    data = this.byte.binArray();
-    this.addr = new Array(6);
-    this.op = new Array(2);
-    // addr is filled with 2-7
-    this.addr[0] = data[2];
-    this.addr[1] = data[3];
-    this.addr[2] = data[4];
-    this.addr[3] = data[5];
-    this.addr[4] = data[6];
-    this.addr[5] = data[7];
-    //op is filled with 0-1
-    this.op[0] = data[0];
-    this.op[1] = data[1];
-    this.getAddrData = function(){
-        return(this.addr);
-    };
-    this.getOpData = function(){
-        return(this.op);
+    this.data = this.byte.binArray();
+    //put address and op code get functions in there respected objects 
+    
+    this.getData = function(){
+        this.opString = "";
+        return(this.opString=this.data.join(""));
     }; 
-    this.displayAddrData = function(){
-        alert(this.addr.join(""));
+    this.displayData = function(){
+        alert(this.data.join(""));
     };
-    this.displayOpData = function(){
-        alert(this.op.join(""));
-    };
+    
 } 
-
-
-
 var stuff = new dataReg();
 stuff.byte.insert(10);
 //alert(stuff.data.toString());
 stuff.byte.displayBin();
-stuff.displayAddrData();
-stuff.displayOpData();
-
-
-
-
 
 function instrReg(){
+    this.IR = new Array(2);
+    this.byte = new Byte();
+    this.IR = this.byte.getOpData();
     
+    for(i=0;i<2;i++){
+        this.IR[i]=data[i];
+    }
     
+    this.displayIR = function(){
+        
+       alert(this.IR.join(""));
+    };
     
+    this.displayIR = function(){
+      this.stringIR = "";
+      return(this.stringIR = this.IR.join(""));
+    };
 }
 
 function addressReg(){
+    this.AR = new Array(6);
+    this.byte = new Byte();
+    data = this.byte.binArray();
+    this.AR = this.byte.getAddrData();
+    
+    for(i=2; i < 8; i++){
+        this.AR[i] = data[i];
+    }
+    
+    this.displayAR = function(){
+        alert(this.AR.join(""));
+        
+    };
+    this.getAR = function(){
+        this.stringAR = "";
+        return(this.stringAR = this.AR.join(""));
+    };
     
 }
-
+//fetch 1: AR<=PC
 function programCounter(){
+    this.PC = new Array(8);
+    this.byte = new Byte();
     
+    //if fetch 2 occurs inc PC
+    //if
+    this.displayPC = function(){
+        alert(this.PC.join(""));
+    };
+    this.getPC = function(){
+        this.stringPC = "";
+        return(this.stringPC = this.PC.join(""));
+    };
 }
